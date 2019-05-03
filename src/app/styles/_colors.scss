@@ -1,0 +1,16 @@
+$primary: #3097D1;
+$accent: #d1ba40;
+$body-bg: #f2f2f2;
+$body-color: #202020;
+$alt-bg: #fcfcfc;
+$alt-color: #202020;
+
+.accent-color {
+  color: $accent;
+}
+
+a {
+  .nav-item {
+    color: #fcfcfc;
+  }
+}

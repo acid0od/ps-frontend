@@ -1,0 +1,60 @@
+<div class="portal">
+  <div class="portal-content">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">{{ APPLICATION_TITLE }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03"
+                aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample03">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-item nav-link" routerLink='/notification' routerLinkActive="active">Notifications</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link" routerLink='/accounts' routerLinkActive="active"
+                 [routerLinkActiveOptions]="{exact: false}">Accounts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link" [routerLink]=" ['/senders'] " routerLinkActive="active"
+                 [routerLinkActiveOptions]="{exact: false}">Senders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link" [routerLink]=" ['/bulkNotification'] " routerLinkActive="active"
+                 [routerLinkActiveOptions]="{exact: false}">BulkNotification</a>
+            </li>
+          </ul>
+          <div class="ml-md-auto d-none d-md-flex">
+            <a class="navbar-text">bp-aievst001
+              <!--{{ (userName$ | async)?.username }}-->
+            </a>
+            <a class="nav-item nav-link" [routerLink]=" ['/logout'] ">
+              <fa-icon [icon]="['fas', 'sign-out-alt']" size="lg"></fa-icon>
+            </a>
+
+          </div>
+
+          <!--
+                        <div class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+                <a class="navbar-text">
+                  {{ (userName$ | async)?.username }}
+                </a>
+                <a class="nav-item nav-link" [routerLink]=" ['/logout'] ">
+                  <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>
+                </a>
+          -->
+
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="header"></div>
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer">
+
+  </div>
+</div>
