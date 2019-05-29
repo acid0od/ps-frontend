@@ -6,6 +6,7 @@ import { NoContentComponent } from './components/no-content/no-content.component
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { RouterModule } from '@angular/router';
 import { FlexModule } from '@angular/flex-layout';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [LogoutComponent, NoContentComponent, NavigationBarComponent],
@@ -13,6 +14,7 @@ import { FlexModule } from '@angular/flex-layout';
     CommonModule,
     RouterModule,
     FlexModule,
+    FontAwesomeModule,
     MaterialModule
   ],
   exports: [

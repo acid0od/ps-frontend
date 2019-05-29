@@ -27,6 +27,6 @@ import { FlexModule } from '@angular/flex-layout';
 })
 export class AppModule {
   constructor() {
-    library.add(faCoffee, faSignOutAlt);
+    library.add(faCoffee, faSignOutAlt, faBars);
   }
 }

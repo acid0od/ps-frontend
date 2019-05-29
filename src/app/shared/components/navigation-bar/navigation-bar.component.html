@@ -1,14 +1,14 @@
 <mat-toolbar color="primary" class="crm-navigation-bar">
   <mat-toolbar-row>
-    <div fxFlex fxLayout fxShrink="1" fxHide.gt-xs>
+    <div fxFlex fxLayout fxHide.gt-xs>
       <button mat-icon-button (click)="toggleSidenav.emit()">
-        <mat-icon>menu</mat-icon>
+        <fa-icon icon="bars"></fa-icon>
       </button>
     </div>
     <div fxFlex fxLayout fxLayoutAlign="flex-start">
       <ul fxLayout fxLayoutGap="10px" class="navigation-items" fxHide.xs>
         <div fxLayout gdGap="60px 60px">
-          <h2>Postal Portal</h2>
+          <h2>Postal Service Portal</h2>
         </div>
 
         <li *ngFor="let item of myWorkRoutes">

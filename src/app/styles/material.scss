@@ -1,7 +1,8 @@
 
 @import '~@angular/material/theming';
 @include mat-core();
-$ps-frontend-primary: mat-palette($mat-indigo);
+
+$ps-frontend-primary: mat-palette($mat-light-blue, 700, 300, 900);
 $ps-frontend-accent: mat-palette($mat-pink, A200, A100, A400);
 $ps-frontend-warn: mat-palette($mat-red);
 $ps-frontend-theme: mat-light-theme($ps-frontend-primary, $ps-frontend-accent, $ps-frontend-warn);
