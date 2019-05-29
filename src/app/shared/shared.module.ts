@@ -1,25 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NoContentComponent } from './components/no-content/no-content.component';
+import { MaterialModule } from './material.module';
 import { LogoutComponent } from './components/logout/logout.component';
+import { NoContentComponent } from './components/no-content/no-content.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { RouterModule } from '@angular/router';
+import { FlexModule } from '@angular/flex-layout';
 
 @NgModule({
-  declarations: [
-    NoContentComponent,
-    LogoutComponent
-  ],
+  declarations: [LogoutComponent, NoContentComponent, NavigationBarComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    FlexModule,
+    MaterialModule
   ],
   exports: [
     NoContentComponent,
-    LogoutComponent
+    LogoutComponent,
+    NavigationBarComponent,
+    FlexModule,
+    MaterialModule
   ]
 })
-export class SharedModule {
-  static forRoot() {
-    return {
-      ngModule: SharedModule
-    };
-  }
-}
+export class SharedModule { }

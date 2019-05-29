@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AccountsListComponent } from '../accounts/list/accounts-list.component';
 import { BulkNotificationListComponent } from './list/bulk-notification-list.component';
+import { BulkNotificationEditComponent } from './edit/bulk-notification-edit.component';
 
 const routes: Routes = [
   {
     path: '', component: BulkNotificationListComponent
+  },
+  {
+    path: 'edit', component: BulkNotificationEditComponent
+  },
+  {
+    path: ':id', component: BulkNotificationEditComponent
   }
-
 ];
 
 @NgModule({

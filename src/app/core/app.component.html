@@ -1,60 +1,63 @@
-<div class="portal">
-  <div class="portal-content">
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">{{ APPLICATION_TITLE }}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03"
-                aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over">
 
-        <div class="collapse navbar-collapse" id="navbarsExample03">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-item nav-link" routerLink='/notification' routerLinkActive="active">Notifications</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-item nav-link" routerLink='/accounts' routerLinkActive="active"
-                 [routerLinkActiveOptions]="{exact: false}">Accounts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-item nav-link" [routerLink]=" ['/senders'] " routerLinkActive="active"
-                 [routerLinkActiveOptions]="{exact: false}">Senders</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-item nav-link" [routerLink]=" ['/bulkNotification'] " routerLinkActive="active"
-                 [routerLinkActiveOptions]="{exact: false}">BulkNotification</a>
-            </li>
-          </ul>
-          <div class="ml-md-auto d-none d-md-flex">
-            <a class="navbar-text">bp-aievst001
-              <!--{{ (userName$ | async)?.username }}-->
-            </a>
-            <a class="nav-item nav-link" [routerLink]=" ['/logout'] ">
-              <fa-icon [icon]="['fas', 'sign-out-alt']" size="lg"></fa-icon>
-            </a>
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <h2 class="toolbar-title"> {{ APP_TOOLBAR_TITLE }} </h2>
+      </mat-toolbar-row>
+    </mat-toolbar>
 
-          </div>
+    <mat-nav-list>
+      <h2 matSubheader> {{ 'Notifications' }} </h2>
 
-          <!--
-                        <div class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-                <a class="navbar-text">
-                  {{ (userName$ | async)?.username }}
-                </a>
-                <a class="nav-item nav-link" [routerLink]=" ['/logout'] ">
-                  <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>
-                </a>
-          -->
+      <a mat-list-item routerLink="/" style="height: 0;"></a>
+      <a *ngFor="let item of notifications"
+         mat-list-item
+         (click)="sidenav.close()"
+         routerLinkActive="active-link"
+         [routerLinkActiveOptions]="{exact: true}"
+         routerLink="item.route">
+        <!--<mat-icon matListIcon class="app-nav-list-icon"> {{ item.icon }} </mat-icon>-->
+        {{item.title}}
+      </a>
 
-        </div>
-      </nav>
-    </div>
-  </div>
-  <div class="header"></div>
-  <div class="main">
+      <mat-divider></mat-divider>
+
+           <h2 matSubheader> {{ 'Senders' }} </h2>
+
+           <a *ngFor="let item of senders"
+              mat-list-item
+              (click)="sidenav.close()"
+              routerLinkActive
+              #routerLinkActiveInstance="routerLinkActive"
+              [class.list-item-active]="routerLinkActiveInstance.isActive"
+              [routerLink]="[item.route]">
+     <!--<mat-icon matListIcon class="app-nav-list-icon"> {{ item.icon }} </mat-icon>-->
+             {{item.title}}
+           </a>
+
+           <mat-divider></mat-divider>
+
+           <h2 matSubheader> {{ 'BulkNotifications' }} </h2>
+
+           <a #routerLinkActiveInstance="routerLinkActive"
+              (click)="sidenav.close()"
+              *ngFor="let item of bulkNotifications"
+              [class.list-item-active]="routerLinkActiveInstance.isActive"
+              [routerLink]="[item.route]"
+              mat-list-item
+              routerLinkActive>
+             <!--<mat-icon class="app-nav-list-icon" matListIcon> {{ item.icon }} </mat-icon>-->
+             {{item.title}}
+           </a>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ps-navigation-bar *ngIf="isAuthenticated()" (toggleSidenav)="sidenav.toggle()"></ps-navigation-bar>
     <router-outlet></router-outlet>
-  </div>
-  <div class="footer">
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
-  </div>
-</div>

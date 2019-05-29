@@ -1,15 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSignOutAlt, faCoffee } from '@fortawesome/free-solid-svg-icons';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './core/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AppComponent } from './core/app.component';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCoffee, faSignOutAlt, faBars } from '@fortawesome/free-solid-svg-icons';
+import { FlexModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -18,10 +18,9 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    SharedModule.forRoot(),
     AppRoutingModule,
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

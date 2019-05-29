@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ps-no-content-component',
+  selector: 'ps-no-content',
   templateUrl: './no-content.component.html',
   styleUrls: ['./no-content.component.scss']
 })
