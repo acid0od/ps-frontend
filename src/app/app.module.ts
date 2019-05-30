@@ -8,8 +8,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './core/app.component';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCoffee, faSignOutAlt, faBars } from '@fortawesome/free-solid-svg-icons';
-import { FlexModule } from '@angular/flex-layout';
+import { faCoffee, faSignOutAlt, faBars} from '@fortawesome/free-solid-svg-icons';
+
 
 @NgModule({
   declarations: [

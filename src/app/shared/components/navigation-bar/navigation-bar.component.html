@@ -1,16 +1,18 @@
-<mat-toolbar color="primary" class="crm-navigation-bar">
-  <mat-toolbar-row>
-    <div fxFlex fxLayout fxHide.gt-xs>
+<mat-toolbar color="primary" fxLayout>
+  <mat-toolbar-row style="padding: 0 4px">
+
+    <div fxFlex="0 1 auto" fxHide="true" fxShow.xs>
       <button mat-icon-button (click)="toggleSidenav.emit()">
-        <fa-icon icon="bars"></fa-icon>
+        <fa-icon icon="bars" size="lg"></fa-icon>
       </button>
     </div>
-    <div fxFlex fxLayout fxLayoutAlign="flex-start">
-      <ul fxLayout fxLayoutGap="10px" class="navigation-items" fxHide.xs>
-        <div fxLayout gdGap="60px 60px">
-          <h2>Postal Service Portal</h2>
-        </div>
 
+    <div fxFlex="0 1 calc(10em + 10px)" style="padding: 0 10px">
+      <h2>Postal Service Portal</h2>
+    </div>
+
+    <div fxFlex="6 1 auto" fxLayoutAlign="flex-start" fxShow="true" fxHide.lt-xs>
+      <ul fxLayout fxFlex fxLayoutGap="10px" class="navigation-items" fxHide.xs>
         <li *ngFor="let item of myWorkRoutes">
           <ng-container *ngIf="item.user !== 'admin'">
             <a routerLinkActive
@@ -24,7 +26,8 @@
         </li>
       </ul>
     </div>
-    <div fxFlex fxLayout fxLayoutAlign="flex-end">
+
+    <div fxFlex="0 1 auto">
       <ul fxLayout fxLayoutGap="10px" class="navigation-items">
         <li>
           <button mat-icon-button>
@@ -33,7 +36,7 @@
         </li>
         <li>
           <button mat-icon-button>
-            <mat-icon>exit_to_app</mat-icon>
+            <fa-icon icon="sign-out-alt" size="lg"></fa-icon>
           </button>
         </li>
       </ul>

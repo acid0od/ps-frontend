@@ -5,7 +5,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { NoContentComponent } from './components/no-content/no-content.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { RouterModule } from '@angular/router';
-import { FlexModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     CommonModule,
     RouterModule,
-    FlexModule,
+    FlexLayoutModule,
     FontAwesomeModule,
     MaterialModule
   ],
@@ -21,8 +21,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NoContentComponent,
     LogoutComponent,
     NavigationBarComponent,
-    FlexModule,
+    FlexLayoutModule,
     MaterialModule
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

@@ -19,25 +19,25 @@ export class NavigationBarComponent {
   myWorkRoutes: ROUTE[] = [
     {
       icon: 'assignment',
-      route: 'Notifications',
+      route: 'notification',
       title: 'Notifications',
       user: 'dev',
       activeOptions: true
     }, {
       icon: 'dashboard',
-      route: 'Accounts',
+      route: 'accounts',
       title: 'Accounts',
       user: 'dev',
       activeOptions: true
     }, {
       icon: 'dashboard',
-      route: 'Senders',
+      route: 'senders',
       title: 'Senders',
       user: 'dev',
       activeOptions: true
     }, {
       icon: 'dashboard',
-      route: 'BulkNotifications',
+      route: 'bulkNotification',
       title: 'BulkNotifications',
       user: 'admin',
       activeOptions: true
