@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-
-interface ROUTE {
-  icon?: string;
-  route?: string;
-  title?: string;
-  activeOptions?: boolean;
-  user?: string;
-}
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ps-root',
@@ -14,57 +7,21 @@ interface ROUTE {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  APPLICATION_TITLE = 'Postal Portal';
+  title = 'ps-frontend';
+  links = [];
 
-  notifications: ROUTE[] = [
-    {
-      icon: 'assignment',
-      route: 'notification/edit',
-      title: 'New Notification',
-      user: 'dev',
-      activeOptions: true
-    }, {
-      icon: 'dashboard',
-      route: 'notification/list',
-      title: 'All Notifications',
-      user: 'dev',
-      activeOptions: true
+  constructor(router: Router) {
+    // Use a custom replacer to display function names in the route configs
+    const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
+
+    console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
+    for (const route of router.config) {
+      if (route.data && route.data.label) {
+        this.links.push({
+          path: `/${route.path}`,
+          label: route.data.label
+        });
+      }
     }
-  ];
-
-  senders: ROUTE[] = [
-    {
-      icon: 'assignment',
-      route: 'senders/edit',
-      title: 'New Sender',
-      user: 'dev',
-      activeOptions: true
-    }, {
-      icon: 'dashboard',
-      route: 'senders/list',
-      title: 'All Senders',
-      user: 'dev',
-      activeOptions: true
-    }
-  ];
-
-  bulkNotifications: ROUTE[] = [
-    {
-      icon: 'insert_comment',
-      route: 'bulkNotification/edit',
-      title: 'New BulkNotification',
-      user: 'dev',
-      activeOptions: true
-    }, {
-      icon: 'dashboard',
-      route: 'bulkNotification/list',
-      title: 'All BulkNotifications',
-      user: 'dev',
-      activeOptions: true
-    }
-  ];
-
-  isAuthenticated() {
-    return true;
   }
 }

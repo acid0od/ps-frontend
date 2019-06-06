@@ -1,63 +1,12 @@
-<mat-sidenav-container>
-  <mat-sidenav #sidenav mode="over">
+<mat-toolbar color="primary">
+  <mat-toolbar-row #toolbarRow>
+    <a [routerLink]="['/']" mat-button>Postal Service Portal</a>
+    <a #rla="routerLinkActive" *ngFor="let link of links"
+       [routerLinkActive]="['mat-button-toggle-checked', 'active-route']" [routerLink]="link.path"
+       mat-button>
+      {{link.label}}
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <h2 class="toolbar-title"> {{ APP_TOOLBAR_TITLE }} </h2>
-      </mat-toolbar-row>
-    </mat-toolbar>
-
-    <mat-nav-list>
-      <h2 matSubheader> {{ 'Notifications' }} </h2>
-
-      <a mat-list-item routerLink="/" style="height: 0;"></a>
-      <a *ngFor="let item of notifications"
-         mat-list-item
-         (click)="sidenav.close()"
-         routerLinkActive="active-link"
-         [routerLinkActiveOptions]="{exact: true}"
-         routerLink="item.route">
-        <!--<mat-icon matListIcon class="app-nav-list-icon"> {{ item.icon }} </mat-icon>-->
-        {{item.title}}
-      </a>
-
-      <mat-divider></mat-divider>
-
-           <h2 matSubheader> {{ 'Senders' }} </h2>
-
-           <a *ngFor="let item of senders"
-              mat-list-item
-              (click)="sidenav.close()"
-              routerLinkActive
-              #routerLinkActiveInstance="routerLinkActive"
-              [class.list-item-active]="routerLinkActiveInstance.isActive"
-              [routerLink]="[item.route]">
-     <!--<mat-icon matListIcon class="app-nav-list-icon"> {{ item.icon }} </mat-icon>-->
-             {{item.title}}
-           </a>
-
-           <mat-divider></mat-divider>
-
-           <h2 matSubheader> {{ 'BulkNotifications' }} </h2>
-
-           <a #routerLinkActiveInstance="routerLinkActive"
-              (click)="sidenav.close()"
-              *ngFor="let item of bulkNotifications"
-              [class.list-item-active]="routerLinkActiveInstance.isActive"
-              [routerLink]="[item.route]"
-              mat-list-item
-              routerLinkActive>
-             <!--<mat-icon class="app-nav-list-icon" matListIcon> {{ item.icon }} </mat-icon>-->
-             {{item.title}}
-           </a>
-
-    </mat-nav-list>
-
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-    <ps-navigation-bar *ngIf="isAuthenticated()" (toggleSidenav)="sidenav.toggle()"></ps-navigation-bar>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
+<router-outlet></router-outlet>

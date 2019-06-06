@@ -7,26 +7,30 @@ const routes: Routes = [
   {path: '', redirectTo: 'notification', pathMatch: 'full'},
   {path: 'logout', component: LogoutComponent},
   {
-    path: 'accounts',
-    loadChildren: './accounts/accounts.module#AccountsModule'
-  },
-  {
     path: 'notification',
-    loadChildren: './notification/notification.module#NotificationModule'
+    loadChildren: './notification/notification.module#NotificationModule',
+    data: {label: 'Notifications'}
   },
   {
     path: 'senders',
-    loadChildren: './senders/senders.module#SendersModule'
+    loadChildren: './senders/senders.module#SendersModule',
+    data: {label: 'Senders'}
+  },
+  {
+    path: 'accounts',
+    loadChildren: './accounts/accounts.module#AccountsModule',
+    data: {label: 'Accounts'}
   },
   {
     path: 'bulkNotification',
-    loadChildren: './bulk-notification/bulk-notification.module#BulkNotificationModule'
+    loadChildren: './bulk-notification/bulk-notification.module#BulkNotificationModule',
+    data: {label: 'BulkNotifications'}
   },
   {path: '**', component: NoContentComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true, preloadingStrategy: PreloadAllModules })],
+  imports: [RouterModule.forRoot(routes, {useHash: true, preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
