@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ps-frontend';
+  APP_TOOLBAR_TITLE = 'Postal Service Portal';
   links = [];
 
   constructor(router: Router) {

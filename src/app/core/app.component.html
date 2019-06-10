@@ -1,12 +1,62 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row #toolbarRow>
-    <a [routerLink]="['/']" mat-button>Postal Service Portal</a>
-    <a #rla="routerLinkActive" *ngFor="let link of links"
-       [routerLinkActive]="['mat-button-toggle-checked', 'active-route']" [routerLink]="link.path"
-       mat-button>
-      {{link.label}}
-    </a>
-  </mat-toolbar-row>
-</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over">
 
-<router-outlet></router-outlet>
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <h2 class="toolbar-title"> {{ APP_TOOLBAR_TITLE }} </h2>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a #rla="routerLinkActive" (click)="sidenav.close()"
+         *ngFor="let link of links" [routerLinkActive]="['mat-button-toggle-checked', 'active-route']"
+         [routerLink]="link.path"
+         mat-list-item>
+        {{link.label}}
+      </a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar color="primary" fxLayout>
+
+      <div fxFlex="0 1 auto" fxHide="true" fxShow.xs>
+        <button (click)="sidenav.toggle()" mat-icon-button>
+          <fa-icon icon="bars" size="lg"></fa-icon>
+        </button>
+      </div>
+
+      <div fxFlex="0 1 calc(10em + 10px)" style="padding: 0 10px">
+        <a [routerLink]="['/']" mat-button>{{ APP_TOOLBAR_TITLE }} </a>
+      </div>
+
+      <div fxFlex="6 1 auto" fxLayoutAlign="flex-start">
+        <a #rla="routerLinkActive" *ngFor="let link of links"
+           [routerLinkActive]="['mat-button-toggle-checked', 'active-route']" [routerLink]="link.path"
+           fxHide.xs mat-button>
+          {{link.label}}
+        </a>
+      </div>
+
+      <div fxFlex="0 1 auto">
+        <div fxLayout fxLayoutGap="10px">
+          <button mat-icon-button>
+            dev
+          </button>
+          <button mat-icon-button>
+            <fa-icon icon="sign-out-alt"></fa-icon>
+          </button>
+        </div>
+      </div>
+
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+

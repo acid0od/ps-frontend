@@ -6,6 +6,8 @@ import { NoContentComponent } from './components/no-content/no-content.component
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthService } from './auth.service';
+import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [LogoutComponent, NoContentComponent],
@@ -24,4 +26,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ]
 })
 export class SharedModule {
+  static forRoot() {
+    return {
+      ngModule: SharedModule,
+      providers: [AuthService, ApiService]
+    };
+  }
 }

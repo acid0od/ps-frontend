@@ -20,7 +20,7 @@ import { faCoffee, faSignOutAlt, faBars} from '@fortawesome/free-solid-svg-icons
     FontAwesomeModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

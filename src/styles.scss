@@ -35,3 +35,34 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+$sidenav-width: 320px;
+
+.mat-sidenav-container {
+  height: 100%;
+}
+
+.mat-sidenav {
+  width: $sidenav-width;
+}
+
+.toolbar-title {
+  margin: 0 16px 0 16px;
+}
+
+.mat-subheader {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.active-route {
+  color: $light-primary-text;
+  background-color: map_get($ps-frontend-primary, 700);
+}
+
+/*
+.inactive-route {
+  color: $light-primary-text;
+  background-color:  map_get($ps-frontend-primary, 500);
+}
+*/
